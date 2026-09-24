@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Fácil</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ff;--card:#fff;--tx:#241b4b;--mut:#6c6690;--pri:#7c4dff;--pt:#fff;--sun:#ff7a59;--ok:#0ea982;--bad:#e63b6a;--bd:#e2dcf7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14112b;--card:#1e1a3d;--tx:#f1eeff;--mut:#a9a3cf;--pri:#9d7bff;--pt:#14112b;--sun:#ff8f73;--ok:#34d3a7;--bad:#ff6b8f;--bd:#332d63}}
+:root[data-theme="dark"]{--bg:#14112b;--card:#1e1a3d;--tx:#f1eeff;--mut:#a9a3cf;--pri:#9d7bff;--pt:#14112b;--sun:#ff8f73;--ok:#34d3a7;--bad:#ff6b8f;--bd:#332d63}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 17px/1.45 Nunito,system-ui,sans-serif}
+#app{max-width:520px;margin:0 auto;padding:16px}
+h1,h2,.big-w{font-family:Fredoka,system-ui,sans-serif;margin:0}
+h1{font-size:30px}h2{font-size:22px}
+.sub{color:var(--mut);margin:2px 0 12px}
+.stats{display:flex;gap:10px;margin-bottom:16px}
+.stats span{background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:4px 14px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin-bottom:14px}
+.bar{height:10px;background:var(--bd);border-radius:9px;overflow:hidden;margin:10px 0 4px}
+.bar i{display:block;height:100%;background:var(--sun);border-radius:9px;transition:width .3s}
+small{color:var(--mut)}
+.row{display:flex;gap:10px;margin-top:12px}
+.btn{flex:1;border:2px solid var(--pri);background:var(--pri);color:var(--pt);font:700 17px Nunito,sans-serif;padding:12px;border-radius:12px;cursor:pointer;min-height:48px}
+.btn.alt{background:transparent;color:var(--pri)}
+.btn.big{width:100%;background:var(--sun);border-color:var(--sun);color:#241b4b;font-size:19px;margin-top:4px}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.no{background:var(--bad);border-color:var(--bad);color:#fff}
+button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.back{background:none;border:0;font-size:26px;color:var(--tx);cursor:pointer;min-width:44px;min-height:44px}
+.top .bar{flex:1;margin:0}
+.flash{background:var(--card);border:2px solid var(--pri);border-radius:22px;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;cursor:pointer}
+.big-w{font-size:44px;font-weight:700;line-height:1.1}
+.ex{color:var(--mut);margin-top:10px}
+.spk{background:var(--sun);border:0;border-radius:50%;width:56px;height:56px;font-size:26px;cursor:pointer;margin-top:14px}
+.hint{color:var(--mut);margin-top:14px;font-size:15px}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--tx);border:2px solid var(--bd);border-radius:14px;padding:14px;margin-top:10px;font:700 18px Nunito,sans-serif;cursor:pointer;min-height:52px}
+.opt.good{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--card))}
+.msg{font-weight:700;margin:14px 0 4px;min-height:28px}
+.q{text-align:center;margin:8px 0 6px}
+.foot{text-align:center;color:var(--mut);font-size:14px}
+.lesson p,.lesson ul{margin:8px 0}.lesson ul{padding-left:20px}.lesson .opt{font-size:16px;min-height:44px;padding:10px 14px}
+.seg{display:flex;gap:3px;margin:10px 0 2px}.seg>div{height:12px;background:var(--bd);border-radius:6px;overflow:hidden}.seg i{display:block;height:100%;background:var(--sun)}.seg.lab{margin:0 0 8px}.seg.lab span{font-size:12px;color:var(--mut);text-align:center}
+.pic{display:inline-block;font-size:84px;line-height:1.1;cursor:pointer;animation:pop .4s ease-out}
+@keyframes pop{0%{transform:scale(.5)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid .opt{margin:10px 0 0;text-align:center}.tile{font-size:56px!important;line-height:1;padding:14px!important}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.tile2{background:var(--card);border:2px solid var(--bd);border-radius:16px;padding:10px 4px;min-height:124px;cursor:pointer;color:var(--tx);font:700 15px Nunito,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.tile2 .pic{font-size:44px}.tile2.on{border-color:var(--pri)}.tile2:active .pic{transform:scale(1.2)}
+.strip{font-size:26px;letter-spacing:4px;margin:6px 0 2px}.row.wrap{flex-wrap:wrap}.row.wrap .btn{flex:1 1 calc(50% - 10px)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body><main id="app"></main>
+<script>
+const U=[
+{id:'g',name:'Saludos',e:'👋',w:[['Hello','Hola','Hello, I am Carlos.'],['Goodbye','Adiós','Goodbye, see you tomorrow.'],['Good morning','Buenos días','Good morning, teacher.'],['Good night','Buenas noches','Good night, mom.'],['Please','Por favor','Water, please.'],['Thank you','Gracias','Thank you very much.'],['Yes','Sí','Yes, I am.'],['Sorry','Lo siento','I am sorry.'],['How are you?','¿Cómo estás?','Hello! How are you?'],['Nice to meet you','Mucho gusto','Nice to meet you, Ana.']]},
+{id:'n',name:'Números',e:'🔢',w:[['One','Uno (1)'],['Two','Dos (2)'],['Three','Tres (3)'],['Four','Cuatro (4)'],['Five','Cinco (5)'],['Six','Seis (6)'],['Seven','Siete (7)'],['Eight','Ocho (8)'],['Nine','Nueve (9)'],['Ten','Diez (10)']]},
+{id:'f',name:'Familia',e:'👨‍👩‍👧',w:[['Mother','Madre','This is my mother.'],['Father','Padre','This is my father.'],['Brother','Hermano','He is my brother.'],['Sister','Hermana','She is my sister.'],['Son','Hijo','He is my son.'],['Daughter','Hija','She is my daughter.'],['Grandmother','Abuela','My grandmother is nice.'],['Grandfather','Abuelo','My grandfather is old.'],['Family','Familia','I love my family.'],['Friend','Amigo','He is my friend.']]},
+{k:2,id:'c',name:'Comida y bebidas',e:'🍚',w:[['Water','Agua','I want water.'],['Bread','Pan','I eat bread.'],['Rice','Arroz','Rice and beans, please.'],['Beans','Frijoles','I like beans.'],['Chicken','Pollo','She eats chicken.'],['Milk','Leche','The baby drinks milk.'],['Coffee','Café','I drink coffee.'],['Fruit','Fruta','Fruit is healthy.'],['Eggs','Huevos','He eats two eggs.'],['Juice','Jugo','Orange juice, please.']]},
+{k:2,id:'co',name:'Colores',e:'🎨',w:[['Red','Rojo','A red apple.'],['Blue','Azul','The sky is blue.'],['Green','Verde','A green bag.'],['Yellow','Amarillo','A yellow banana.'],['Black','Negro','A black car.'],['White','Blanco','A white shirt.'],['Orange','Naranja','An orange fruit.'],['Pink','Rosado','A pink dress.'],['Brown','Café (color)','A brown dog.'],['Purple','Morado','A purple flower.']]},
+{k:2,id:'d',name:'Días de la semana',e:'📅',w:[['Monday','Lunes','I work on Monday.'],['Tuesday','Martes','Tuesday is busy.'],['Wednesday','Miércoles','Wednesday is my day off.'],['Thursday','Jueves','See you on Thursday.'],['Friday','Viernes','Friday is fun.'],['Saturday','Sábado','Saturday is family day.'],['Sunday','Domingo','Sunday is a rest day.'],['Today','Hoy','Today is Monday.'],['Tomorrow','Mañana','See you tomorrow.'],['Yesterday','Ayer','I was here yesterday.']]}
+];
+const $=s=>document.querySelector(s);
+let S={pts:0,streak:0,last:'',box:{}};
+try{Object.assign(S,JSON.parse(localStorage.getItem('ef_u1')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('ef_u1',JSON.stringify(S))}catch(e){}};
+const EM={'Hello':'👋','Goodbye':'🚶','Good morning':'🌅','Good night':'🌙','Please':'🙏','Thank you':'😊','Yes':'✅','Sorry':'😔','How are you?':'💬','Nice to meet you':'🤝','One':'1️⃣','Two':'2️⃣','Three':'3️⃣','Four':'4️⃣','Five':'5️⃣','Six':'6️⃣','Seven':'7️⃣','Eight':'8️⃣','Nine':'9️⃣','Ten':'🔟','Mother':'👩','Father':'👨','Brother':'👦','Sister':'👧','Son':'👨‍👦','Daughter':'👩‍👧','Grandmother':'👵','Grandfather':'👴','Family':'👨‍👩‍👧‍👦','Friend':'🧑‍🤝‍🧑','Water':'💧','Bread':'🍞','Rice':'🍚','Beans':'🫘','Chicken':'🍗','Milk':'🥛','Coffee':'☕','Fruit':'🍎','Eggs':'🥚','Juice':'🧃','Red':'🟥','Blue':'🟦','Green':'🟩','Yellow':'🟨','Black':'⬛','White':'⬜','Orange':'🟧','Pink':'💗','Brown':'🟫','Purple':'🟪','Monday':'📅','Tuesday':'📅','Wednesday':'📅','Thursday':'📅','Friday':'📅','Saturday':'📅','Sunday':'📅','Today':'☀️','Tomorrow':'🌄','Yesterday':'⏪'};
+const all=U.flatMap(u=>u.w.map(w=>({en:w[0],es:w[1],ex:w[2]||'',u:u.id,k:u.k||1,i:EM[w[0]]||''})));
+const bx=w=>S.box[w.en]||0;
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+function tick(){const d=new Date().toDateString();if(S.last!==d){const y=new Date(Date.now()-864e5).toDateString();S.streak=S.last===y?S.streak+1:1;S.last=d}save()}
+let SAYT;
+function stopSay(){clearTimeout(SAYT);try{speechSynthesis.cancel()}catch(e){}}
+function say(t,d=80){clearTimeout(SAYT);try{const q=speechSynthesis;q.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;const v=q.getVoices().find(x=>(x.lang||'').replace('_','-').startsWith('en-US'));if(v)u.voice=v;SAYT=setTimeout(()=>{q.resume();q.speak(u)},d)}catch(e){}}
+let AC;
+function ac(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state!=='running')AC.resume()}catch(e){}return AC}
+document.addEventListener('pointerdown',ac);
+function xy(f,t,v,d){const T=ac().currentTime+t;[[1,1,1],[3.9,.35,.4],[9.2,.1,.15]].forEach(([r,g,m])=>{const o=AC.createOscillator(),n=AC.createGain();o.type='sine';o.frequency.value=f*r;n.gain.setValueAtTime(.0001,T);n.gain.linearRampToValueAtTime(v*g,T+.005);n.gain.exponentialRampToValueAtTime(.0001,T+d*m);o.connect(n);n.connect(AC.destination);o.start(T);o.stop(T+d*m+.05)})}
+function snd(k){try{if(k===2)[523,659,784,1047,1319,1568,2093].forEach((f,i)=>xy(f,i*.09,.3,.6));else if(k)[880,1175,1568].forEach((f,i)=>xy(f,i*.075,.3,.5));else[349,262].forEach((f,i)=>xy(f,i*.16,.4,.55))}catch(e){}}
+const LV=[[0,'Principiante','🌱'],[100,'Explorador','🧭'],[250,'Conversador','💬'],[500,'Hablante','🎤'],[1000,'Campeón','🏆']];
+const lvi=()=>{let i=0;LV.forEach((l,k)=>{if(S.pts>=l[0])i=k});return i};
+let SB=S.pts,CU=S.cu||1;
+const stats=()=>{const i=lvi(),c=LV[i],n=LV[i+1],p=n?Math.round((S.pts-c[0])/(n[0]-c[0])*100):100;
+ return `<div class="card" onclick="info()" role="button" tabindex="0"><b>${c[2]} Nivel ${i+1} · ${c[1]}</b><span style="float:right">🔥 ${S.streak}</span><div class="bar"><i style="width:${p}%"></i></div><small>⭐ ${S.pts} puntos${n?` · faltan ${n[0]-S.pts} para ${n[2]} ${n[1]}`:' · ¡nivel máximo!'}<br>Toca aquí para ver para qué sirven los puntos</small></div>`};
+function info(){
+ const bd=[['🥇','Primera práctica',(S.n||0)>=1,'Termina una práctica'],['🔥','Racha de 3 días',S.streak>=3,'Estudia 3 días seguidos'],['📚','10 palabras dominadas',all.filter(w=>bx(w)>=2).length>=10,'Acierta 10 palabras varias veces'],['🎤','Buen acento',(S.pp||0)>=5,'Pronuncia bien 5 palabras (85% o más)'],['🧠','Gramática perfecta',Object.values(S.g||{}).includes(5),'Saca 5/5 en una lección']];
+ stopSay();$('#app').innerHTML=tb(0)+`<h2>¿Para qué sirven los puntos?</h2><div class="card lesson"><p>Miden tu avance real: con ellos <b>subes de nivel</b> y ganas <b>insignias</b>. Si fallas, no pierdes puntos.</p><p><b>Cómo ganarlos</b></p><ul><li>+10 por respuesta correcta o ejercicio de gramática</li><li>+15 por pronunciar muy bien, +10 si casi, +5 por intentarlo</li><li>+2 por cada palabra que marcas como aprendida</li></ul><p><b>Niveles</b></p><ul>${LV.map((l,i)=>`<li>${l[2]} ${l[1]} · desde ${l[0]} puntos${i==lvi()?' ← tú estás aquí':''}</li>`).join('')}</ul><p><b>Insignias</b></p><ul>${bd.map(b=>`<li>${b[2]?b[0]:'🔒'} <b>${b[1]}</b> · ${b[3]}</li>`).join('')}</ul></div>`}
+const tb=p=>`<div class="top"><button class="back" onclick="home()" aria-label="Volver">←</button><div class="bar"><i style="width:${p}%"></i></div></div>`;
+
+function home(){SB=S.pts;
+ stopSay();$('#app').innerHTML=`<h1>English Fácil</h1><p class="sub">Inglés básico (A1)</p>${stats()}${rcard()}<div class="row" style="margin:0 0 14px">${[...Array(NU)].map((_,i)=>i+1).map(k=>`<button class="btn${CU==k?'':' alt'}" onclick="CU=${k};S.cu=${k};save();home()">Unidad ${k}</button>`).join('')}</div>`+
+ U.filter(u=>(u.k||1)==CU).map(u=>{const ws=all.filter(w=>w.u==u.id),p=Math.round(ws.filter(w=>bx(w)>=2).length/ws.length*100);
+ return `<section class="card"><h2>${u.e} ${u.name}</h2><div class="strip">${ws.slice(0,6).map(w=>w.i).join('')}</div><div class="bar"><i style="width:${p}%"></i></div><small>${p}% dominado · ${ws.length} palabras</small><div class="row wrap"><button class="btn" onclick="explore('${u.id}')">🖼️ Explorar</button><button class="btn alt" onclick="learn('${u.id}')">Aprender</button><button class="btn alt" onclick="quiz('${u.id}')">Practicar</button><button class="btn alt" onclick="pron('${u.id}')">🎤 Hablar</button></div></section>`}).join('')+
+ gcard()+`<button class="btn big" onclick="quiz()">🎯 Repaso mixto</button><p class="foot">Tu progreso se guarda en este teléfono.</p>`;
+}
+function done(t,m){snd(2);tick();S.n=(S.n||0)+1;const e=S.pts-SB,up=lvi()>(S.lv||0),c=LV[lvi()];S.lv=lvi();save();
+ stopSay();$('#app').innerHTML=`<div class="card" style="text-align:center;margin-top:30px"><div style="font-size:56px">${up?'🏆':'🎉'}</div><h2>${up?'¡Subiste de nivel!':t}</h2><p>${up?`Ahora eres ${c[2]} <b>${c[1]}</b>.`:m}</p><p><b>+${e} puntos</b> en esta sesión · total ⭐ ${S.pts}</p><button class="btn" onclick="home()">Volver al inicio</button></div>`}
+
+let L={};
+function learn(id){L={q:shuf(all.filter(w=>w.u==id)),i:0,f:false,k:0};card()}
+function card(){
+ if(L.i>=L.q.length){S.pts+=L.k*2;return done('¡Unidad repasada!',`Marcaste ${L.k} de ${L.q.length} palabras como aprendidas. +${L.k*2} puntos.`)}
+ const w=L.q[L.i];
+ stopSay();$('#app').innerHTML=tb(L.i/L.q.length*100)+(L.f
+ ?`<div class="flash" onclick="flip()"><div class="pic" onclick="event.stopPropagation();say('${w.en}')">${w.i}</div><div class="big-w">${w.es}</div><div class="ex">${w.en}${w.ex?' · “'+w.ex+'”':''}</div><button class="spk" onclick="event.stopPropagation();say(L.q[L.i].ex||L.q[L.i].en)" aria-label="Escuchar">🔊</button></div><div class="row"><button class="btn no" onclick="mark(0)">Otra vez</button><button class="btn ok" onclick="mark(1)">Ya la sé</button></div>`
+ :`<div class="flash" onclick="flip()"><div class="pic" onclick="event.stopPropagation();say('${w.en}')">${w.i}</div><div class="big-w">${w.en}</div><button class="spk" onclick="event.stopPropagation();say(L.q[L.i].en)" aria-label="Escuchar">🔊</button><div class="hint">Toca la tarjeta para ver el significado</div></div>`);
+ if(!L.f)say(w.en);
+}
+function flip(){L.f=!L.f;card()}
+function mark(k){const w=L.q[L.i];if(k){S.box[w.en]=Math.max(bx(w),1);L.k++}else{S.box[w.en]=0}save();L.i++;L.f=false;card()}
+
+let Q={};
+function quiz(id){
+ const pool=id?all.filter(w=>w.u==id):all.filter(w=>w.k==CU);
+ const ws=shuf(pool).sort((a,b)=>bx(a)-bx(b)).slice(0,10);
+ Q={pool,q:ws.map(w=>({w,t:['en2es','es2en','listen','pic','tap','pic','tap'][Math.floor(Math.random()*7)]})),i:0,ok:0,done:false,rq:{}};ask();
+}
+function ask(){
+ if(Q.i>=Q.q.length){const n=Object.keys(Q.rq).length;return done('¡Práctica terminada!',`Acertaste ${Q.ok} respuestas a la primera de ${Q.q.length-n}.`)}
+ const w=Q.q[Q.i].w;let t=Q.q[Q.i].t;
+ const cand=Q.pool.filter(x=>x!==w&&x.i&&x.i!==w.i);
+ if((t=='pic'||t=='tap')&&!(w.i&&Q.pool.filter(x=>x.i===w.i).length==1&&new Set(cand.map(x=>x.i)).size>=3))t='en2es';
+ let ds=shuf(Q.pool.filter(x=>x!==w));
+ if(t=='pic'||t=='tap'){const seen=new Set([w.i]);ds=shuf(cand).filter(x=>!seen.has(x.i)&&seen.add(x.i))}
+ Q.o=shuf([w,...ds.slice(0,3)]);Q.a=false;
+ const en=t!='en2es',tap=t=='tap';
+ const head=t=='en2es'?`<p class="q">¿Qué significa?</p><div style="text-align:center"><span class="pic" onclick="say(Q.q[Q.i].w.en)" role="button" aria-label="Escuchar" >${w.i}</span></div><div class="big-w" style="text-align:center">${w.en}</div>`:t=='es2en'?`<p class="q">¿Cómo se dice en inglés?</p><div class="big-w" style="text-align:center">${w.es}</div>`:t=='pic'?`<p class="q">¿Qué es esto en inglés?</p><div style="text-align:center"><span class="pic" onclick="say(Q.q[Q.i].w.en)" role="button" aria-label="Escuchar" style="font-size:96px">${w.i}</span></div>`:tap?`<p class="q">Escucha y toca la imagen correcta</p>`:`<p class="q">Escucha y elige lo que oyes</p>`;
+ stopSay();$('#app').innerHTML=tb(Q.i/Q.q.length*100)+head+`<div style="text-align:center">${t=='es2en'||t=='pic'?'':'<button class="spk" onclick="say(Q.q[Q.i].w.en)" aria-label="Escuchar">🔊</button>'}</div><div class="${tap?'grid':''}">`+Q.o.map((x,k)=>`<button class="opt${tap?' tile':''}" onclick="pick(${k})">${tap?x.i:en?x.en:x.es}</button>`).join('')+`</div><div class="msg" id="m"></div><div id="nx"></div>`;
+ if(t=='listen'||tap)say(w.en);
+}
+function pick(k){
+ if(Q.a)return;Q.a=true;
+ const {w}=Q.q[Q.i],right=Q.o[k]===w,bs=document.querySelectorAll('.opt');
+ bs.forEach((b,j)=>{if(Q.o[j]===w)b.classList.add('good')});
+ if(right){bs[k].classList.add('good');S.pts+=10;Q.ok++;snd(1);S.box[w.en]=Math.min(bx(w)+1,3);$('#m').textContent='¡Correcto! +10 ⭐';$('#m').style.color='var(--ok)'}
+ else{bs[k].classList.add('bad');snd(0);S.box[w.en]=0;$('#m').textContent=`Era: ${w.en} = ${w.es}`;$('#m').style.color='var(--bad)';
+  if(!Q.rq[w.en]){Q.rq[w.en]=1;Q.q.push({w,t:'en2es'})}}
+ save();say(w.en,600);
+ $('#nx').innerHTML='<button class="btn" onclick="Q.i++;ask()">Siguiente</button>';
+}
+const G=[
+{id:'be',name:'Verbo to be (ser/estar)',e:'🧩',t:`<p>En inglés siempre se dice el sujeto. <b>To be</b> significa <b>ser</b> o <b>estar</b> y cambia según quién habla:</p><ul><li><b>I am</b> = yo soy / estoy</li><li><b>You are</b> = tú eres / estás</li><li><b>He is</b> = él es / está</li><li><b>She is</b> = ella es / está</li><li><b>We are</b> = nosotros somos</li><li><b>They are</b> = ellos son</li></ul><p>Para negar, agrega <b>not</b>: I am <b>not</b> tired.</p>`,s:['I am a father.','She is my sister.','We are friends.'],x:[['I ___ Carlos.','am',['am','is','are']],['She ___ my mother.','is',['am','is','are']],['We ___ a family.','are',['am','is','are']],['He ___ my brother.','is',['is','are','am']],['They ___ my friends.','are',['is','am','are']]]},
+{id:'art',name:'Artículos a / an',e:'🔤',t:`<p><b>A</b> y <b>an</b> significan "un / una". La regla depende del <b>sonido</b> de la palabra que sigue:</p><ul><li><b>a</b> antes de consonante: a brother, a sister</li><li><b>an</b> antes de vocal (a, e, i, o, u): an uncle, an apple</li></ul><p>Solo se usan con una cosa o persona, nunca en plural.</p>`,s:['I have a brother.','She is an aunt.','It is an apple.'],x:[['I have ___ brother.','a',['a','an']],['She is ___ aunt.','an',['a','an']],['He is ___ friend.','a',['a','an']],['It is ___ apple.','an',['a','an']],['This is ___ family.','a',['a','an']]]},
+{id:'pos',name:'Mi, tu, su (my, your...)',e:'👪',t:`<p>Van <b>antes</b> del sustantivo y no cambian por género ni número:</p><ul><li><b>my</b> = mi · <b>your</b> = tu</li><li><b>his</b> = su (de él) · <b>her</b> = su (de ella)</li><li><b>our</b> = nuestro · <b>their</b> = su (de ellos)</li></ul><p>my mother, my brothers (siempre "my", aunque sea plural).</p>`,s:['This is my mother.','He loves his daughter.','We love our family.'],x:[['I love ___ family.','my',['my','your','their']],['Ana loves ___ son.','her',['his','her','my']],['Carlos loves ___ daughter.','his',['his','her','our']],['You love ___ mother.','your',['your','my','his']],['We love ___ house.','our',['our','their','my']]]},
+{k:2,id:'ps',name:'Presente simple (eat / eats)',e:'🍽️',t:`<p>Para hábitos y cosas que haces siempre, usa el verbo tal cual con <b>I, you, we, they</b>:</p><ul><li>I <b>eat</b> rice. · They <b>drink</b> milk.</li></ul><p>Con <b>he, she, it</b> agrega <b>-s</b>:</p><ul><li>She <b>eats</b> rice. · He <b>drinks</b> coffee.</li></ul><p>Para negar usa <b>don't</b> (I, you, we, they) o <b>doesn't</b> (he, she, it): I <b>don't</b> like milk. She <b>doesn't</b> like milk. Con doesn't el verbo no lleva -s.</p>`,s:['I eat rice every day.','She drinks coffee.','They drink milk.'],x:[['I ___ rice every day.','eat',['eat','eats']],['She ___ coffee.','drinks',['drink','drinks']],['We ___ fruit.','eat',['eat','eats']],['He ___ chicken.','eats',['eat','eats']],['They ___ milk.','drink',['drink','drinks']]]},
+{k:2,id:'pl',name:'Plurales (egg → eggs)',e:'🥚',t:`<p>Para hablar de más de uno, agrega <b>-s</b>: one egg → two egg<b>s</b>.</p><p>Si la palabra termina en <b>s, x, ch, sh</b>, agrega <b>-es</b>: one box → two box<b>es</b>.</p><p>Algunos son irregulares y hay que memorizarlos: child → <b>children</b>, man → <b>men</b>, woman → <b>women</b>.</p>`,s:['One egg, two eggs.','One box, two boxes.','One child, two children.'],x:[['One egg, two ___.','eggs',['eggs','egg']],['One bean, three ___.','beans',['beans','bean']],['One box, two ___.','boxes',['boxes','boxs']],['One child, two ___.','children',['childs','children']],['One bus, two ___.','buses',['buses','buss']]]},
+{k:2,id:'adj',name:'Colores y adjetivos',e:'🖍️',t:`<p>En inglés el adjetivo va <b>antes</b> del sustantivo, al revés que en español: <b>a red car</b> (un carro rojo).</p><p>Además el adjetivo <b>nunca cambia</b>: red car, red cars.</p>`,s:['I have a red car.','She has a blue bag.','They eat green apples.'],x:[['I have a ___.','red car',['red car','car red']],['They eat ___.','green apples',['green apples','apples green']],['He has a ___.','blue bag',['blue bag','bag blue']],['We have two ___.','yellow bananas',['yellow bananas','yellow banana','bananas yellow']],['She has a ___.','white shirt',['white shirt','shirt white']]]}
+];
+const gcard=()=>`<section class="card"><h2>📖 Gramática</h2><small>Aprende las reglas paso a paso</small>`+G.filter(g=>(g.k||1)==CU).map(g=>`<button class="opt" onclick="gram('${g.id}')">${g.e} ${g.name}${S.g&&S.g[g.id]!=null?' · ✓ '+S.g[g.id]+'/5':''}</button>`).join('')+`</section>`;
+function gram(id){const g=G.find(x=>x.id==id);stopSay();$('#app').innerHTML=tb(0)+`<h2>${g.e} ${g.name}</h2><div class="card lesson">${g.t}<p>Ejemplos (toca para escuchar):</p>${g.s.map(x=>`<button class="opt" onclick="say('${x}')">🔊 ${x}</button>`).join('')}</div><button class="btn big" onclick="gx('${id}')">Practicar ejercicios</button>`}
+let R={};
+function gx(id){R={id,q:shuf(G.find(x=>x.id==id).x),i:0,ok:0};gq()}
+function gq(){
+ if(R.i>=R.q.length){S.g=S.g||{};S.g[R.id]=Math.max(S.g[R.id]||0,R.ok);return done('¡Lección terminada!',`Acertaste ${R.ok} de ${R.q.length}.`)}
+ const [s,a,o]=R.q[R.i];R.a=false;
+ stopSay();$('#app').innerHTML=tb(R.i/R.q.length*100)+`<p class="q">Completa la oración</p><div class="big-w" style="text-align:center;font-size:32px">${s}</div>`+shuf(o).map(x=>`<button class="opt" onclick="gp(this,'${x}')">${x}</button>`).join('')+`<div class="msg" id="m"></div><div id="nx"></div>`}
+function gp(b,x){if(R.a)return;R.a=true;const [s,a]=R.q[R.i];
+ document.querySelectorAll('.opt').forEach(e=>{if(e.textContent==a)e.classList.add('good')});
+ if(x==a){S.pts+=10;R.ok++;snd(1);$('#m').textContent='¡Correcto! +10 ⭐';$('#m').style.color='var(--ok)'}else{b.classList.add('bad');snd(0);$('#m').textContent='La respuesta es: '+a;$('#m').style.color='var(--bad)'}
+ save();say(s.replace('___',a),600);
+ $('#nx').innerHTML='<button class="btn" onclick="R.i++;gq()">Siguiente</button>'}
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition,NW=['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+const nm=s=>s.toLowerCase().replace(/\b(\d+)\b/g,(x,d)=>NW[+d]||x).replace(/[^a-z ]/g,'').trim();
+function sim(a,b){const d=[...Array(a.length+1)].map((_,i)=>[i,...Array(b.length).fill(0)]);for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return 1-d[a.length][b.length]/Math.max(a.length,b.length,1)}
+let P={};
+function pron(id){P={q:shuf(all.filter(w=>w.u==id)).slice(0,8),i:0,sum:0,n:0,got:{}};pw()}
+function pw(){
+ if(P.i>=P.q.length)return done('¡Pronunciación completada!',`Practicaste ${P.q.length} palabras${P.n?` · promedio ${Math.round(P.sum/P.n)}%`:''}.`);
+ const w=P.q[P.i];BLOB=null;
+ stopSay();$('#app').innerHTML=tb(P.i/P.q.length*100)+`<p class="q">Escucha, habla y compara</p><div class="flash" style="cursor:default;min-height:200px"><div class="pic" onclick="say('${w.en}')">${w.i}</div><div class="big-w">${w.en}</div><div class="ex">${w.es}</div><button class="spk" onclick="say('${w.en}')" aria-label="Escuchar">🔊</button></div><button class="btn big" id="mic" onclick="rec()">🎤 Toca y habla</button><div class="msg" id="m" style="text-align:center"></div><div id="nx"><button class="btn alt" onclick="P.i++;pw()">Saltar</button></div><p class="foot">Tu grabación se queda en tu teléfono.</p>`;
+ say(w.en,300)}
+let BLOB=null;
+function selfOk(){const k=P.q[P.i].en;if(!P.got[k]){P.got[k]=1;S.pts+=5;save()}snd(1);P.i++;pw()}
+function playMine(){try{stopSay();new Audio(URL.createObjectURL(BLOB)).play()}catch(e){}}
+async function rec(){
+ const m=$('#m'),b=$('#mic'),w=P.q[P.i];let stream,mr,sr=null,out=null,err='',dead=false,stopped=false,ch=[];
+ stopSay();BLOB=null;m.textContent='';
+ try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){m.style.color='var(--bad)';m.textContent='Aquí el micrófono está bloqueado ('+(e.name||'error')+'). Puedes practicar sin micrófono: escucha el modelo, repite en voz alta y toca el botón.';$('#nx').innerHTML='<div class="row"><button class="btn alt" onclick="say(\''+w.en+'\')">🔊 Modelo</button></div><div class="row"><button class="btn" onclick="selfOk()">Ya lo dije en voz alta · +5 ⭐</button></div>';return}
+ b.disabled=true;b.textContent='🎙️ Habla ahora...';
+ try{mr=new MediaRecorder(stream);mr.ondataavailable=e=>{if(e.data.size)ch.push(e.data)};mr.start()}catch(e){mr=null}
+ if(SR){try{sr=new SR();sr.lang='en-US';sr.maxAlternatives=5;
+  sr.onresult=e=>{const al=[...e.results[0]].map(a=>a.transcript),t=nm(w.en);let best=0,heard=al[0];al.forEach(a=>{const c=sim(nm(a),t);if(c>best){best=c;heard=a}});out={p:Math.round(best*100),heard}};
+  sr.onerror=e=>{err=e.error;if(err!='no-speech'&&err!='aborted')dead=true};
+  sr.onend=()=>{if(!dead)setTimeout(finish,250)};sr.start()}catch(e){sr=null}}
+ setTimeout(finish,5500);
+ function finish(){if(stopped)return;stopped=true;try{sr&&sr.stop()}catch(e){}
+  const end=()=>{stream.getTracks().forEach(t=>t.stop());if(ch.length)BLOB=new Blob(ch,{type:mr.mimeType});after()};
+  if(mr&&mr.state!='inactive'){mr.onstop=end;mr.stop()}else end()}
+ function after(){
+  b.disabled=false;b.textContent='🎤 Intentar otra vez';const k=w.en,first=!P.got[k];let pts=0;
+  if(out&&out.p>=85){snd(1);pts=15;P.sum+=out.p;P.n++;S.pp=(S.pp||0)+1;m.style.color='var(--ok)';m.textContent=`¡Excelente! ${out.p}%`}
+  else if(out&&out.p>=60){snd(1);pts=10;P.sum+=out.p;P.n++;m.style.color='var(--sun)';m.textContent=`Casi. Entendimos “${out.heard}” (${out.p}%)`}
+  else if(out){snd(0);pts=5;m.style.color='var(--bad)';m.textContent=`Entendimos “${out.heard}” (${out.p}%). Compara tu voz con el modelo e inténtalo otra vez.`}
+  else if(BLOB){snd(1);pts=5;m.style.color='var(--mut)';m.textContent='No pudimos calificarla automáticamente. Escucha tu voz y compárala con el modelo.'}
+  else{snd(0);m.style.color='var(--bad)';m.textContent=/allowed/.test(err)?'El micrófono está bloqueado (error: '+err+'). Abre el enlace directo en Chrome.':'No te escuchamos. Acércate al micrófono e inténtalo otra vez.';return}
+  if(first){P.got[k]=1;S.pts+=pts;m.textContent+=` · +${pts} ⭐`}
+  save();
+  $('#nx').innerHTML=`<div class="row">${BLOB?'<button class="btn alt" onclick="playMine()">▶ Mi voz</button>':''}<button class="btn alt" onclick="say('${k}')">🔊 Modelo</button></div><div class="row"><button class="btn" onclick="P.i++;pw()">Siguiente</button></div>`}
+}
+
+const PL=[['A1',6,'Principiante','Puedes saludar, presentarte y usar expresiones básicas para pedir cosas y hablar de ti y tu familia. Entiendes frases muy simples y pausadas.','My name is Carlos.'],['A2',8,'Básico','Puedes hablar de tu rutina, tu trabajo y tus compras, y mantener conversaciones cortas sobre temas conocidos. Entiendes mensajes y avisos sencillos.','I usually wake up at six.'],['B1',10,'Intermedio','Puedes desenvolverte de viaje, contar experiencias, dar tu opinión y explicar planes. Entiendes lo principal de una conversación normal.','I have been learning English for a year.'],['B2',10,'Intermedio alto','Puedes conversar con fluidez con hablantes nativos, entender textos complejos y defender tus ideas con argumentos claros.','Although it was expensive, it was worth it.'],['C1',8,'Avanzado','Te expresas con soltura y precisión, entiendes textos largos y exigentes, y usas el idioma para trabajar o estudiar sin dificultad.','Had I known, I would have acted differently.'],['C2',6,'Dominio','Dominas el idioma casi como un nativo: captas matices, humor e ideas complejas y hablas de cualquier tema con naturalidad.','It goes without saying that nuance matters.']],NU=Math.max(...U.map(u=>u.k||1));
+function up(k){const ws=all.filter(w=>w.k==k),gs=G.filter(g=>(g.k||1)==k);if(!ws.length)return 0;return .7*ws.filter(w=>bx(w)>=2).length/ws.length+(gs.length?.3*gs.filter(g=>((S.g||{})[g.id]||0)>=4).length/gs.length:0)}
+function route(){let k=0;const tot=PL.reduce((a,l)=>a+l[1],0),lv=PL.map(l=>{const ks=[...Array(l[1])].map(()=>++k);return{n:l[0],t:l[2],d:l[3],x:l[4],c:l[1],ks,p:ks.reduce((a,x)=>a+(x<=NU?up(x):0),0)/l[1]}});return{lv,all:lv.reduce((a,l)=>a+l.p*l.c,0)/tot}}
+function rcard(){const r=route(),c=r.lv.find(l=>l.p<.999)||r.lv[5];
+ return `<div class="card" onclick="ruta()" role="button" tabindex="0"><b>🧭 Mi camino a C2</b><span style="float:right"><b>${Math.round(r.all*100)}%</b></span><div class="seg">${r.lv.map(l=>`<div style="flex:${l.c}"><i style="width:${l.p*100}%"></i></div>`).join('')}</div><div class="seg lab">${r.lv.map(l=>`<span style="flex:${l.c}">${l.n}</span>`).join('')}</div><small>Ahora estás en <b>${c.n}</b> · ${Math.round(c.p*100)}% de este nivel<br>${c.d}<br>Toca para ver toda la ruta</small></div>`}
+function ruta(){const r=route();
+ $('#app').innerHTML=tb(r.all*100)+`<h2>Mi camino a C2</h2><p class="sub">Llevas el ${Math.round(r.all*100)}% del camino completo (${PL.reduce((a,l)=>a+l[1],0)} unidades planeadas).</p>`+
+ r.lv.map(l=>{const soon=l.ks.filter(x=>x>NU).length;return `<section class="card"><b>${l.n} · ${l.t}</b><span style="float:right">${Math.round(l.p*100)}%</span><div class="bar"><i style="width:${l.p*100}%"></i></div><p>${l.d}</p><button class="opt" onclick="say('${l.x}')">🔊 ${l.x}</button>`+l.ks.filter(x=>x<=NU).map(x=>`<button class="opt" onclick="CU=${x};S.cu=${x};save();home()">Unidad ${x} · ${Math.round(up(x)*100)}%</button>`).join('')+(soon?`<small>🔒 ${soon} unidad${soon>1?'es':''} próximamente</small>`:'')+`</section>`}).join('')+`<p class="foot">Es tu avance dentro de English Fácil, no un certificado oficial. Un nivel se completa al dominar las palabras (70%) y practicar la gramática (30%) de sus unidades.</p>`}
+
+function explore(id){const u=U.find(x=>x.id==id),ws=all.filter(w=>w.u==id);window.XO={id,n:new Set()};
+ $('#app').innerHTML=tb(0)+`<h2>${u.e} ${u.name}</h2><p class="sub">Toca cada imagen para escucharla y ver su significado.</p><div class="grid3">${ws.map((w,i)=>`<button class="tile2" id="t${i}" onclick="tapT(${i})"><span class="pic">${w.i}</span><b class="tl">?</b><small class="ts">&nbsp;</small></button>`).join('')}</div><div class="msg" id="m" style="text-align:center"></div><button class="btn big" onclick="learn('${id}')">Aprender estas palabras</button>`}
+function tapT(i){const ws=all.filter(x=>x.u==XO.id),w=ws[i],b=$('#t'+i);say(w.en,40);b.querySelector('.tl').textContent=w.en;b.querySelector('.ts').textContent=w.es;b.classList.add('on');XO.n.add(i);
+ S.xp=S.xp||{};if(XO.n.size==ws.length&&!S.xp[XO.id]){S.xp[XO.id]=1;S.pts+=5;save();snd(2);$('#m').style.color='var(--ok)';$('#m').textContent='¡Viste todas! +5 ⭐'}}
+home();
+</script></body></html>
